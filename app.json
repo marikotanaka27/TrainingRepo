@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "myNewProject",
+    "slug": "myNewProject",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/react-logo@2x.png",
+    "splash": {
+      "image": "./assets/images/react-logo.png",  // 画像のパス
+      "resizeMode": "contain",         // 画像の表示方法
+      "backgroundColor": "#ffffff"    // 背景色
+    },
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      ["expo-router"]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "newsApiKey": "414cd771914947e39d47f171f44c5fc0",
+      "weatherApiKey": "abea76eb3d5a097ae31c3c783f2f6797"
+    }
+  }
+}
