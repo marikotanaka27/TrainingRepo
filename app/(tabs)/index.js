@@ -9,6 +9,7 @@ import { router } from "expo-router";
 
 const newsApiKey = Constants.expoConfig?.extra.newsApiKey;
 const URI = `https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=${newsApiKey}`;
+// const URI = `https://newsapi.org/v2/top-headlines?country=jp&language=ja&category=general&apiKey=${newsApiKey}`
 
 
 export default function NewsScreen() {
@@ -18,7 +19,7 @@ export default function NewsScreen() {
     const response = await axios
       .get(URI)
       .then((response) => {
-        // console.log(response);
+        console.log("NEWS一覧はこちら" + JSON.stringify(response));
         setNews(response.data.articles);
       })
       .catch((err) => console.log(err));
@@ -44,7 +45,7 @@ export default function NewsScreen() {
             />
           )}
         />
-      </SafeAreaView>
+      </SafeAreaView> 
      
   );
 
