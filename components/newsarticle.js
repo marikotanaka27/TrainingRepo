@@ -4,9 +4,8 @@ const NewsArticle = ({ imageurl, title, subtext, onPress }) => {
   var date = new Date(subtext);
   var year = date.getFullYear();
   var month = date.getMonth();
-  console.log(month);
-  var day = date.getDay();
-  var publishdate = year + "年" + month + "月" + day + "日";
+  var date = date.getDate();
+  var publishdate = year + "年" + month + "月" + date + "日";
 
   return (
     <TouchableOpacity style={styles.box} onPress={onPress}>
