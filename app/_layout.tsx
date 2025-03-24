@@ -1,14 +1,14 @@
 import { Stack } from "expo-router/stack";
-import { Tabs } from "expo-router";
 
 export default function Layout() {
   return (
     <Stack
       screenOptions={{
+        title:"",
         headerStyle: {
           backgroundColor: "#fff",
         },
-        headerTintColor: "#000",
+        headerTintColor: "black",
         headerTitleStyle: {
           fontWeight: "bold",
         },
@@ -24,24 +24,22 @@ export default function Layout() {
         
 
       {/* 銀行 */}
-      {/* <Stack.Screen
-        name="bank/index"
-        options={{ headerTitle: "南都銀行メニュー" }}
-      /> */}
       <Stack.Screen
         name="bank/detailmenu"
-        options={{ headerTitle: "メニュー詳細" }}
+        options={
+          { headerTitle: "メニュー詳細",
+          }
+       }
       />
 
-      {/* news一覧*/}
-      {/* <Stack.Screen
-        name="news/index"
-        options={{ headerTitle: "ニュース一覧" }}
-      /> */}
       {/* news詳細*/}
       <Stack.Screen
         name="news/detailscreen"
-        options={{ headerTitle: "ニュース詳細" }}
+        options={{ 
+          
+          headerTitle: "ニュース詳細",
+
+         }}
       />
     </Stack>
   );

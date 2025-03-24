@@ -8,11 +8,14 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 export default function TabLayout() {
 
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "blue" }}>
+    <Tabs screenOptions={
+      { tabBarActiveTintColor: "blue",      }
+    }>
       <Tabs.Screen
         name="index"
         options={{
           title: "ニュース一覧",
+          headerTitleAlign: "center",
           tabBarIcon: ({ color }) => (
             <Entypo size={28} name="news" color={color} />
           ),
@@ -41,6 +44,7 @@ export default function TabLayout() {
         name="weather"
         options={{
           title: "全国のお天気",
+          headerTitleAlign: "center",
           tabBarIcon: ({ color }) => (
             <FontAwesome name="sun-o" size={28} color={color} />
           ),
