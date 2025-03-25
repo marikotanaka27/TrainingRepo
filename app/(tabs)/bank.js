@@ -1,7 +1,7 @@
 // 銀行メニュー一覧画面
 
-import { StyleSheet, FlatList, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, FlatList} from "react-native";
+import { SafeAreaProvider,SafeAreaView } from "react-native-safe-area-context";
 import MenuList from "@/components/menulist";
 import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
@@ -65,7 +65,6 @@ export default function NamtoBkMenu() {
           // 各urlをセット
           const aTag = element.getElementsByTagName("a")[0];
           const hrefURL = aTag ? aTag.getAttribute("href") : "#" + sonota;
-          console.log(hrefURL);
           NANTOMENU[i].url = URI + hrefURL;
 
           if (i == 4) {
@@ -74,24 +73,20 @@ export default function NamtoBkMenu() {
             NANTOMENU[i].url = itemURL + "#" + sonota;
           }
 
-          console.log(NANTOMENU[i].url);
         }
 
         setMenu(NANTOMENU);
       })
       .catch((err) => console.log(err));
   };
-  // const fetchSVG = async () => {
-  //   const fileUri = await downloadSVG(svgURL);
-  //   setSvgUri(fileUri); // ダウンロードしたファイルの URI を状態にセット
-  // };
 
   useEffect(() => {
     getMenu();
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container} >
       <FlatList
         data={menu}
         renderItem={({ item }) => (
@@ -107,7 +102,13 @@ export default function NamtoBkMenu() {
         )}
       />
     </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+
+});

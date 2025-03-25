@@ -5,9 +5,6 @@ import * as SplashScreen from "expo-splash-screen";
 // import downloadSVG from "./src/utils/utils";
 import * as FileSystem from 'expo-file-system';
 
-
-const svgURL = "https://www.nantobank.co.jp/common/img/glogo.svg";
-
 // スプラッシュ画面を非表示にしないようにする（初期化）
 SplashScreen.preventAutoHideAsync();
 
@@ -26,7 +23,7 @@ export default function Home() {
       return () => clearTimeout(timer);
     };
     prepare();
-    // const timer = ￥setTimeout(() => {
+    // const timer = setTimeout(() => {
     //   router.replace('/(tabs)');
     // //   // router.replace('/news');
     // //   // router.replace('/bank');

@@ -4,7 +4,7 @@ const MenuList = ({ title, onPress }) => {
   return (
     <TouchableOpacity style={styles.box} onPress={onPress}>
       <View style={styles.textbox}>
-        <Text numberOfLines={3} style={styles.maintext}>
+        <Text style={styles.maintext}>
           {title}
         </Text>
       </View>
@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     height: 60,
     width: "100%",
-    // borderWidth: 2,
     // borderColor: "#cc0000",
   },
   textbox: {

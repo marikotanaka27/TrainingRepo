@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import React, { useEffect, useState, useRef } from "react";
-import {Image } from "react-native";
+import {Image, View } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -32,8 +32,9 @@ export default function TabLayout() {
           headerTitle:  () => (
             <Image
               source={require("../../assets/images/glogo.jpg")}
-              style={{ width: 140,height:40,resizeMode: "contain" }}
+              style={{width: 100,height:40,resizeMode: "contain"}}
             />
+
           ),
           tabBarIcon: ({ color }) => (
             <AntDesign name="bank" size={24} color={color} />

@@ -19,7 +19,6 @@ export default function NewsScreen() {
     const response = await axios
       .get(URI)
       .then((response) => {
-        console.log("NEWS一覧はこちら" + JSON.stringify(response));
         setNews(response.data.articles);
       })
       .catch((err) => console.log(err));
