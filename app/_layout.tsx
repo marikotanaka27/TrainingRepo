@@ -28,6 +28,8 @@ export default function Layout() {
         name="bank/detailmenu"
         options={
           { headerTitle: "メニュー詳細",
+            headerTitleAlign:"center",
+
           }
        }
       />
@@ -36,7 +38,7 @@ export default function Layout() {
       <Stack.Screen
         name="news/detailscreen"
         options={{ 
-          
+          headerTitleAlign:"center",
           headerTitle: "ニュース詳細",
 
          }}
