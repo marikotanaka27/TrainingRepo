@@ -13,7 +13,6 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "components/newsarticle.js",
-    "app/bank/index.js",
-    "app/(tabs)/weather.js"
-, "app/(tabs)/bank.js"  ]
+    "app/(tabs)/index.js"
+  ]
 }

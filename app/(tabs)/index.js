@@ -1,58 +1,134 @@
-// ニュース一覧画面
+// 銀行メニュー一覧画面
 
-import { useState, useEffect } from "react";
-import { StyleSheet, FlatList, SafeAreaView,Text } from "react-native";
-import NewsArticle from "@/components/newsarticle";
-import Constants from "expo-constants";
-import axios from "axios";
+import { StyleSheet, FlatList} from "react-native";
+import { SafeAreaProvider,SafeAreaView } from "react-native-safe-area-context";
+import MenuList from "@/components/menulist";
 import { router } from "expo-router";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { DOMParser } from "react-native-html-parser";
 
-const newsApiKey = Constants.expoConfig?.extra.newsApiKey;
-const URI = `https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=${newsApiKey}`;
-// const URI = `https://newsapi.org/v2/top-headlines?country=jp&language=ja&category=general&apiKey=${newsApiKey}`
+
+const URI = "https://www.nantobank.co.jp/hojin/";
+
+const NANTOMENU = [
+  {
+    id: "hojin-title01",
+    title: "",
+    url: "",
+    img: 1
+  },
+  {
+    id: "hojin-title02",
+    title: "",
+    url: "",
+    img: 2
+
+  },
+  {
+    id: "hojin-title03",
+    title: "",
+    url: "",
+    img: 3
+
+  },
+  {
+    id: "hojin-title04",
+    title: "",
+    url: "",
+    img: 4
 
 
-export default function NewsScreen() {
-  const [news, setNews] = useState([]);
+  },
+  {
+    id: "hojin-title05",
+    title: "",
+    url: "",
+    img: 5
 
-  const getNews = async () => {
+  },
+];
+
+export default function NamtoBkMenu() {
+  const [menu, setMenu] = useState([]);
+
+  const getMenu = async () => {
     const response = await axios
       .get(URI)
       .then((response) => {
-        setNews(response.data.articles);
+        // DOMParser を使って HTML を解析
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(response.data, "text/html");
+
+        // NANTOMENUにタイトルとリンクをセット
+        for (let i = 0; i < NANTOMENU.length; i++) {
+          const element = doc.getElementById(NANTOMENU[i].id);
+          // 各タイトルセット
+          const elemvalue = element ? element.textContent : "テキストなし";
+          NANTOMENU[i].title = elemvalue;
+
+          // その他のアンカータグセット用（その他のアンカータグ）
+          const elemsonota = doc.getElementById("sonota");
+          const sonota = elemsonota.getAttribute("id");
+
+          // 各urlをセット
+          const aTag = element.getElementsByTagName("a")[0];
+          const hrefURL = aTag ? aTag.getAttribute("href") : "#" + sonota;
+          NANTOMENU[i].url = URI + hrefURL;
+
+          if (i == 4) {
+            // その他のアンカータグ用に最後の"/"削除
+            const itemURL = URI.slice(0, -1);
+            NANTOMENU[i].url = itemURL + "#" + sonota;
+          }
+
+        }
+
+        setMenu(NANTOMENU);
       })
       .catch((err) => console.log(err));
-      
   };
 
-  // 第二引数からの場合　画面表示の時に1度アラートが表示
   useEffect(() => {
-    getNews();
+    getMenu();
   }, []);
 
   return (
-      <SafeAreaView style={styles.container}>
-        <FlatList
-          data = {news}
-          renderItem = { ({ item }) => (
-            <NewsArticle
-              imageurl = {item.urlToImage}
-              title = {item.title}
-              subtext = {item.publishedAt}
-              onPress={ () => {router.push ({ pathname: "/news/detailscreen", params:{article: item.url}}  );}}
-              // onPress = {handlePress, {article: {item}}}
-            />
-          )}
-        />
-      </SafeAreaView> 
-     
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container} >
+      <FlatList style={styles.menubox}
+        // horizontal
+        numColumns={3}
+        data={menu}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item }) => (
+          <MenuList
+            title={item.title}
+            img={item.img}
+            onPress={() => {
+              router.push({
+                pathname: "/bank/detailmenu",
+                params: { menu: item.url },
+              });
+            }}
+          />
+        )}
+        showsHorizontalScrollIndicator={false} // スクロールバーを非表示にする
+      />
+    
+    </SafeAreaView>
+    </SafeAreaProvider>
+    
   );
-
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
   },
+  menubox:{
+    paddingHorizontal: 10, // 左右の余白
+    // backgroundColor:'lightblue'
+  }
+
 });

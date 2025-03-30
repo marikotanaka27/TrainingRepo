@@ -1,5 +1,4 @@
 import { Tabs } from "expo-router";
-import React, { useEffect, useState, useRef } from "react";
 import {Image, View } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -14,17 +13,6 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "ニュース一覧",
-          headerTitleAlign: "center",
-          tabBarIcon: ({ color }) => (
-            <Entypo size={28} name="news" color={color} />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="bank"
-        options={{
           title: "南都銀行メニュー",
           headerTitleAlign:"left",
           headerStyle: {
@@ -32,7 +20,7 @@ export default function TabLayout() {
           headerTitle:  () => (
             <Image
               source={require("../../assets/images/glogo.jpg")}
-              style={{width: 100,height:40,resizeMode: "contain"}}
+              style={{width: 130,height:'100%',resizeMode: "contain"}}
             />
 
           ),
@@ -41,6 +29,7 @@ export default function TabLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="weather"
         options={{

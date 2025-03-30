@@ -27,9 +27,14 @@ export default function Layout() {
       <Stack.Screen
         name="bank/detailmenu"
         options={
-          { headerTitle: "メニュー詳細",
-            headerTitleAlign:"center",
-
+          { 
+            headerTitle: "メニュー詳細",
+            headerTitleAlign:"left",
+            headerTitleStyle:{
+              fontSize: 16,
+              fontWeight: "bold",
+              
+            },
           }
        }
       />

@@ -4,9 +4,9 @@
     "slug": "myNewProject",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/react-logo@2x.png",
+    "icon": "./assets/images/splash-icon.png",
     "splash": {
-      "image": "./assets/images/react-logo.png",  // 画像のパス
+      "image": "./assets/images/glogo.jpg",  // 画像のパス
       "resizeMode": "contain",         // 画像の表示方法
       "backgroundColor": "#ffffff"    // 背景色
     },
