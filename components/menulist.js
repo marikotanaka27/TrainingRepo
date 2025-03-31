@@ -35,22 +35,25 @@ const styles = StyleSheet.create({
   box: {
     flexDirection: 'column',
     alignItems: 'center',
-    marginHorizontal: 0,
-    // padding: 0,
+    justifyContent:"space-around",
+    marginHorizontal: width*0.01,
+    // padding: 5,
     width: width * 0.3,
     height: 140,
     marginTop: 40,
-    // backgroundColor:"pink"
+    backgroundColor:"pink"
   },
   textbox: {
-    width: 110,
+    width: width * 0.3,
     height: 140,
     alignItems: "center",
     justifyContent: "center",
     // borderWidth: 1,
     // borderColor: "#ccc",
     borderRadius: 10,
-    paddingHorizontal: 5, // 左右の余白
+    borderColor: "black",
+    borderWidth:1,
+    // paddingHorizonstal: width * 0.05, // 左右の余白
     backgroundColor: "#fff"
   },
   maintext: {
