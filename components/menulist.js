@@ -2,8 +2,8 @@ import { StyleSheet, Text, View, Image,TouchableOpacity } from "react-native";
 import { Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
-console.log(width);
-console.log(height);
+// console.log(width);
+// console.log(height);
 
 const MenuList = ({ title, img, onPress }) => {
   const images = {

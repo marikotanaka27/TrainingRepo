@@ -7,7 +7,10 @@ import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { DOMParser } from "react-native-html-parser";
+import { Dimensions } from 'react-native';
 
+const { width, height } = Dimensions.get('window');
+console.log(width);
 
 const URI = "https://www.nantobank.co.jp/hojin/";
 
@@ -127,7 +130,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   menubox:{
-    paddingHorizontal: 10, // 左右の余白
+    paddingHorizontal: width * 0.01, // 左右の余白
     // backgroundColor:'lightblue'
   }
 
