@@ -1,4 +1,8 @@
 import { StyleSheet, Text, View, Image,TouchableOpacity } from "react-native";
+import { Dimensions } from 'react-native';
+
+const { width } = Dimensions.get('window');
+console.log(width);
 
 const MenuList = ({ title, img, onPress }) => {
   const images = {
@@ -31,13 +35,12 @@ const styles = StyleSheet.create({
   box: {
     flexDirection: 'column',
     alignItems: 'center',
-    marginHorizontal: 5,
-    // marginBottom: 10,
-    // borderRadius: 10,
-    width: 120,
+    marginHorizontal: 0,
+    // padding: 0,
+    width: width * 0.3,
     height: 140,
     marginTop: 40,
-    // backgroundColor:"#fff"
+    // backgroundColor:"pink"
   },
   textbox: {
     width: 110,
