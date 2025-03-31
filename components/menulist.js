@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View, Image,TouchableOpacity } from "react-native";
 import { Dimensions } from 'react-native';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 console.log(width);
+console.log(height);
 
 const MenuList = ({ title, img, onPress }) => {
   const images = {
@@ -39,20 +40,20 @@ const styles = StyleSheet.create({
     marginHorizontal: width*0.01,
     // padding: 5,
     width: width * 0.3,
-    height: 140,
+    height: height * 0.2,
     marginTop: 40,
-    backgroundColor:"pink"
+    // backgroundColor:"pink"
   },
   textbox: {
     width: width * 0.3,
-    height: 140,
+    height: height * 0.2,
     alignItems: "center",
     justifyContent: "center",
     // borderWidth: 1,
     // borderColor: "#ccc",
     borderRadius: 10,
-    borderColor: "black",
-    borderWidth:1,
+    // borderColor: "black",
+    // borderWidth:1,
     // paddingHorizonstal: width * 0.05, // 左右の余白
     backgroundColor: "#fff"
   },
