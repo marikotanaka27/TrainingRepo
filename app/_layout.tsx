@@ -1,4 +1,5 @@
 import { Stack } from "expo-router/stack";
+import { Image } from "react-native";
 
 export default function Layout() {
   return (
@@ -28,13 +29,20 @@ export default function Layout() {
         name="bank/detailmenu"
         options={
           { 
-            headerTitle: "メニュー詳細",
-            headerTitleAlign:"left",
-            headerTitleStyle:{
-              fontSize: 16,
-              fontWeight: "bold",
+            // headerTitle:  () => (
+            //   <Image
+            //     source={require("../assets/images/glogo.jpg")}
+            //     style={{width: 200,height:'100%', backgroundColor:"red"}}
+            //   />
+  
+            // ),
+            // headerTitle: "メニュー詳細",
+            // headerTitleAlign:"center",
+            // headerTitleStyle:{
+            //   fontSize: 16,
+            //   fontWeight: "bold",
               
-            },
+            // },
           }
        }
       />

@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import {Image, View } from "react-native";
+import {Image, View, Text, StyleSheet } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -8,25 +8,30 @@ export default function TabLayout() {
 
   return (
     <Tabs screenOptions={
-      { tabBarActiveTintColor: "blue",      }
+      { tabBarActiveTintColor: "#ccc",
+      }
+      
+
     }>
       <Tabs.Screen
         name="index"
         options={{
-          title: "南都銀行メニュー",
-          headerTitleAlign:"left",
-          headerStyle: {
-          },
-          headerTitle:  () => (
-            <Image
-              source={require("../../assets/images/glogo.jpg")}
-              style={{width: 130,height:'100%',resizeMode: "contain"}}
-            />
-
-          ),
+          title: "南都銀行 法人ポータルサービストップ",
           tabBarIcon: ({ color }) => (
             <AntDesign name="bank" size={24} color={color} />
           ),
+          headerTitleAlign:"left",
+          headerTitle:  () => (
+            <View style ={styles.headerview}>
+              <Image
+              source={require("../../assets/images/glogo.jpg")}
+              style={styles.headerimg}
+            />
+            <Text style={styles.headertext}>法人ポータルトップ</Text>
+            </View>
+
+          ),
+
         }}
       />
 
@@ -42,4 +47,35 @@ export default function TabLayout() {
       />
     </Tabs>
   );
-}
+};
+const styles = StyleSheet.create({
+  headerview:{
+    // flex:1,
+    // backgroundColor: "gray",
+    // borderWidth:2,
+    flexDirection: "row",
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    paddingTop:0,
+    paddingHorizontal: 0,
+//     verticalAlign: "auto"
+  },
+  headerimg:{
+    // width: "40%",
+    width: 90,
+    height:'100%',
+    resizeMode: "contain",
+  },
+  headertext:{
+    marginLeft: 5,
+    color: "#222",
+    fontSize: 16,
+    marginTop: 5,
+    // fontFamily: "",
+    fontWeight: "bold",
+
+  },
+});
+
+
