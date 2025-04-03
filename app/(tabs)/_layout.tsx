@@ -8,17 +8,28 @@ export default function TabLayout() {
 
   return (
     <Tabs screenOptions={
-      { tabBarActiveTintColor: "#ccc",
+      { tabBarActiveTintColor: "#cc0000",
+        tabBarStyle: {
+          height:55,
+          // backgroundColor:"pink",
+        }
       }
+      
       
 
     }>
       <Tabs.Screen
         name="index"
         options={{
-          title: "南都銀行 法人ポータルサービストップ",
+          // title: "南都銀行法人ポータルサービストップ",
+          tabBarLabel:() => (
+            <View style={{alignItems:"center"}}>
+              <Text style={styles.tabtext}>南都銀行</Text>
+              <Text style={styles.tabtext}>法人ポータルサービス</Text>
+            </View>
+          ),
           tabBarIcon: ({ color }) => (
-            <AntDesign name="bank" size={24} color={color} />
+            <AntDesign name="bank" size={24} color={color}/>
           ),
           headerTitleAlign:"left",
           headerTitle:  () => (
@@ -76,6 +87,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
 
   },
+  tabtext:{
+    fontSize:8,
+    color:"#cc0000",
+    fontWeight:"bold",
+  }
 });
 
 
